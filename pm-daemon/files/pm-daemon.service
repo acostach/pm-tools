@@ -1,0 +1,10 @@
+[Unit]
+Description=Service file for pm-daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pm-daemon -d /dev/pm_detect_dev -s /etc/pm/sleep.d
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
